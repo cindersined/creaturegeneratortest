@@ -1,0 +1,87 @@
+using System;
+using System.Runtime.CompilerServices;
+
+//built in the most recent visual studio with c#
+{
+    Console.WriteLine("This is just a basic generator, more will be added later.");
+//defining colours and patterns
+    string[] ColourList = new string[] { "Red", "Yellow", "Blue", "White", "Black" };
+    string[] PatternList = new string[] { "Plain", "Spotted", "Striped", "Royal", "Patchy" };
+
+//picking random colours and patterns
+    Random rnd = new Random();
+    int rndClr1 = rnd.Next(ColourList.Length);
+    int rndClr2 = rnd.Next(ColourList.Length);
+    int rndPat = rnd.Next(PatternList.Length);
+
+//think i had to do this to make the first part of the if/else work, not sure why
+    string Colour1 = rndClr1.ToString();
+    string Colour2 = rndClr2.ToString();
+
+
+    if (Colour1 == Colour2)
+    {
+        string finalColour = Colour1;
+//if the two colours are the same, then that's the final colour, otherwise mix them using the following rules
+    }
+    else if (rndClr1 == 0)
+    {
+        if (rndClr2 == 1)
+        { string finalColour = "Orange"; }
+        else if (rndClr2 == 2)
+        { string finalColour = "Purple"; }
+        else if (rndClr2 == 3)
+        { string finalColour = "Pink"; }
+        else
+        { string finalColour = "Dark Red"; }
+    }
+    else if (rndClr1 == 1)
+    {
+        if (rndClr2 == 2)
+        { string finalColour = "Green"; }
+        else if (rndClr2 == 3)
+        { string finalColour = "Pale Yellow"; }
+        else if (rndClr2 == 4)
+        { string finalColour = "Brown"; }
+        else { string finalColour = "Orange"; }
+    }
+    else if (rndClr1 == 2)
+    {
+        if (rndClr2 == 0)
+        { string finalColour = "Purple"; }
+        else if (rndClr2 == 1)
+        { string finalColour = "Green"; }
+        else if (rndClr2 == 3)
+        { string finalColour = "Sky Blue"; }
+        else { string finalColour = "Navy"; }
+    }
+    else if (rndClr1 == 3)
+    {
+        if (rndClr2 == 0)
+        { string finalColour = "Pink"; }
+        else if (rndClr2 == 1)
+        { string finalColour = "Pale Yellow"; }
+        else if (rndClr2 == 2)
+        { string finalColour = "Sky Blue"; }
+        else { string finalColour = "Grey"; }
+    }
+    else if (rndClr1 == 4)
+    {
+        if (rndClr2 == 0)
+        { string finalColour = "Dark Red"; }
+        else if (rndClr2 == 1)
+        { string finalColour = "Brown"; }
+        else if (rndClr2 == 2)
+        { string finalColour = "Navy"; }
+        else { string finalColour = "Grey"; }
+    }
+    else
+    { string finalColour = "Well, I don't know how this happened, but the colour generator broke."; }
+//error catcher
+
+    Console.WriteLine("The creature has this pattern: " + PatternList[rndPat] + ", and its fur is this colour: " + finalColour + ".");
+    Console.ReadKey();
+
+//for some reason, vs doesn't recognise finalColour as a variable that's already been defined, so the testing fails
+//i don't know why
+}
